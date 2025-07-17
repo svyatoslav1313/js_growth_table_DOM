@@ -50,15 +50,17 @@ appendColumn.addEventListener('click', () => {
     const cell = document.createElement('td');
 
     row.appendChild(cell);
-
-    if (row.children.length === 10) {
-      appendColumn.setAttribute('disabled', '');
-    }
-
-    if (row.children.length > 2 && removeColumn.hasAttribute('disabled')) {
-      removeColumn.removeAttribute('disabled');
-    }
   });
+
+  const r = document.querySelector('tr');
+
+  if (r.children.length === 10) {
+    appendColumn.setAttribute('disabled', '');
+  }
+
+  if (r.children.length > 2 && removeColumn.hasAttribute('disabled')) {
+    removeColumn.removeAttribute('disabled');
+  }
 });
 
 removeColumn.addEventListener('click', () => {
@@ -68,13 +70,15 @@ removeColumn.addEventListener('click', () => {
     const lastCell = row.lastElementChild;
 
     row.removeChild(lastCell);
-
-    if (row.children.length === 2) {
-      removeColumn.setAttribute('disabled', '');
-    }
-
-    if (row.children.length < 10 && appendColumn.hasAttribute('disabled')) {
-      appendColumn.removeAttribute('disabled');
-    }
   });
+
+  const r = document.querySelector('tr');
+
+  if (r.children.length === 2) {
+    removeColumn.setAttribute('disabled', '');
+  }
+
+  if (r.children.length < 10 && appendColumn.hasAttribute('disabled')) {
+    appendColumn.removeAttribute('disabled');
+  }
 });
